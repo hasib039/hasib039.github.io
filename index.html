@@ -326,6 +326,8 @@
     .meta-v .small { color: var(--text-2); font-size: 13px; display: block; margin-top: 2px; }
     @media(max-width:860px) {
       .hero-copy, .hero-sub { grid-column: 1/-1; }
+      .hero-avatar { grid-column: 1/-1; grid-row: auto; order: -1; justify-content: flex-start; margin-bottom: 24px; }
+      .avatar-wrap { max-width: 140px; }
       .meta-strip { grid-template-columns: repeat(2,1fr); }
       .meta-cell { min-height: 0; padding: 22px 20px 18px 0; }
       .meta-cell + .meta-cell { padding-left: 20px; }
@@ -756,6 +758,79 @@
     }
     .wa-float:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.45); }
     .wa-float svg { width: 26px; height: 26px; fill: #fff; }
+
+    /* ── Hero Profile Avatar ────────────────────────────────────────────────── */
+    .hero-avatar {
+      grid-column: 10 / span 3;
+      grid-row: 1 / span 2;
+      display: flex;
+      justify-content: flex-end;
+      align-self: center;
+    }
+    .avatar-wrap {
+      width: 100%;
+      max-width: 220px;
+      aspect-ratio: 1 / 1;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border-2);
+      background: var(--surface);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .avatar-wrap:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 16px 48px oklch(0.76 0.16 55 / 0.15);
+    }
+    .avatar-wrap:hover img {
+      transform: scale(1.05);
+    }
+
+    /* ── Client References Directory ───────────────────────────────────────── */
+    .ref-directory-section { margin-top: 80px; border-top: 1px solid var(--border); padding-top: 60px; }
+    .ref-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+    .ref-filter-btn {
+      appearance: none; border: 1px solid var(--border); background: var(--elev);
+      color: var(--text-2); font-family: var(--mono); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.05em; text-transform: uppercase; padding: 8px 16px; border-radius: 6px;
+      cursor: pointer; transition: all .2s ease;
+    }
+    .ref-filter-btn:hover { color: var(--text); border-color: var(--border-2); }
+    .ref-filter-btn.active { color: var(--accent); border-color: oklch(0.76 0.16 55 / 0.45); background: var(--accent-dim); }
+    
+    .ref-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 16px; }
+    .ref-item-card {
+      border: 1px solid var(--border); border-radius: 12px; padding: 20px;
+      background: linear-gradient(180deg, rgba(21,24,29,0.4) 0%, rgba(14,16,19,0.4) 100%);
+      backdrop-filter: blur(10px); display: flex; flex-direction: column; justify-content: space-between;
+      min-height: 180px; transition: border-color .2s ease, transform .2s ease, opacity .3s ease;
+    }
+    .ref-item-card:hover { border-color: var(--border-2); transform: translateY(-1px); }
+    .ref-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+    .ref-client-name { font-size: 15px; font-weight: 500; color: var(--text); letter-spacing: -0.015em; }
+    .ref-badge {
+      font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 3px 7px; border-radius: 4px; border: 1px solid var(--border); color: var(--text-2);
+    }
+    .ref-badge.manufacturing { color: oklch(0.76 0.16 55 / 0.8); border-color: oklch(0.76 0.16 55 / 0.25); background: oklch(0.76 0.16 55 / 0.05); }
+    .ref-badge.retail { color: #58a6ff; border-color: rgba(56,139,253,0.25); background: rgba(56,139,253,0.05); }
+    .ref-badge.services { color: #aff5b4; border-color: rgba(46,160,67,0.25); background: rgba(46,160,67,0.05); }
+    .ref-badge.ngo { color: #d3a4ff; border-color: rgba(187,128,255,0.25); background: rgba(187,128,255,0.05); }
+    
+    .ref-card-desc { font-size: 13px; line-height: 1.5; color: var(--text-2); margin: 0 0 16px; flex-grow: 1; }
+    
+    .ref-card-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--hair); padding-top: 12px; }
+    .ref-tech-tag { font-family: var(--mono); font-size: 10px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.03em; }
+    .ref-status { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 0.02em; }
+    
+    html[data-theme="light"] .ref-item-card { background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(237,240,244,0.8) 100%); }
   </style>
 </head>
 
@@ -814,6 +889,11 @@
             Consultant<span class="accent">.</span>
           </h1>
           <p class="hero-h1-tag">Business Analysis · ERP Implementation · Dhaka, Bangladesh.</p>
+        </div>
+        <div class="hero-avatar reveal">
+          <div class="avatar-wrap">
+            <img src="./2.png" alt="Hashib Anjum Mahhe" />
+          </div>
         </div>
         <p class="hero-sub reveal">
           <strong style="color:var(--text);font-weight:600">I'm Hashib Anjum Mahhe.</strong>
@@ -1043,6 +1123,632 @@
           </div>
         </article>
       </div>
+      <!-- Client References Directory -->
+      <div class="ref-directory-section reveal">
+        <h3 style="font-size: 24px; font-weight: 500; letter-spacing: -0.02em; margin: 0 0 12px; color: var(--text);">Client Directory &amp; References (55)</h3>
+        <p style="font-size: 14.5px; color: var(--text-2); line-height: 1.6; max-width: 680px; margin: 0 0 32px;">
+          A complete directory of all 55 Odoo ERP implementation references delivered under Metamorphosis Ltd. (Odoo Gold Partner in Bangladesh), covering business analysis, custom module design, UAT governance, and support.
+        </p>
+
+        <!-- Filter Tags -->
+        <div class="ref-filters">
+          <button class="ref-filter-btn active" data-filter="all">All (55)</button>
+          <button class="ref-filter-btn" data-filter="manufacturing">Manufacturing (13)</button>
+          <button class="ref-filter-btn" data-filter="retail">Wholesale &amp; Retail (24)</button>
+          <button class="ref-filter-btn" data-filter="services">IT &amp; Services (15)</button>
+          <button class="ref-filter-btn" data-filter="ngo">NGO (3)</button>
+        </div>
+
+        <!-- Directory Grid -->
+        <div class="ref-grid">
+          <div class="ref-item-card" data-category="services">
+            <div class="ref-card-header">
+              <span class="ref-client-name">AI for Business Transformation (AI4BT)</span>
+              <span class="ref-badge services">IT & Services</span>
+            </div>
+            <p class="ref-card-desc">AI4BT is a specialized consultancy empowering SMEs through practical, human-centered artificial intelligence. As a catalyst for business transformation, the firm delivers end-to-end services—from AI readiness assessme...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Accounting & eCommerce</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Adarsha</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">Adarsha Publication is a prominent name in Bangladesh’s publishing industry, known for its dedication to quality and intellectual growth. With a diverse catalog spanning fiction, non-fiction, poetry, and children’s li...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Sales & POS</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Agile Minds Solutions Limited</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">Agile Minds Solutions Limited, established in 2020, unites a diverse portfolio of ventures encompassing food distribution for global entities such as UNDP and WFP, digital marketing, PR, branding, renewable energy inv...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">MRP & Inventory</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="manufacturing">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Ajit Saha Bangladesh Limited</span>
+              <span class="ref-badge manufacturing">Manufacturing</span>
+            </div>
+            <p class="ref-card-desc">Ajit Saha Bangladesh Limited is dedicated to empowering farmers through the provision of high-quality seeds and innovative pest control solutions. Specializing in a diverse portfolio of vegetable and field crop seeds,...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Purchase</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Alchem Enterprise</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">Alchem Enterprise specializes in supplying high-value APIs and excipients to Bangladesh’s pharmaceutical, herbal, and nutraceutical industries. With strong partnerships with global leaders like DFE Pharma (Germany), A...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Sales & POS</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Anan Enterprise</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">Anan Enterprise, a rapidly growing super shop in Bangladesh, partnered with Metamorphosis Ltd. to streamline and digitalize their retail operations through the implementation of Odoo ERP. With a focus on Inventory Man...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Sales & POS</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="ngo">
+            <div class="ref-card-header">
+              <span class="ref-client-name">BSEP Bangladesh</span>
+              <span class="ref-badge ngo">NGO</span>
+            </div>
+            <p class="ref-card-desc">BSEP, a reliable Manufacturing & Trading business company for Fire Safety & Electro-Mechanical products and solutions cater to Industries, Commercial and Residential premises, but not limited to these specific sectors...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">MRP & Inventory</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Baatighar</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">Baatighar is a premier book store in Bangladesh with three large scale physical stores and a collection of more than 90,000 unique books, written by 8,000+ writers represented by 2,000 publishers. Baatighar, a Bengali...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Sales & POS</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="services">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Bel Group</span>
+              <span class="ref-badge services">IT & Services</span>
+            </div>
+            <p class="ref-card-desc">BelTech is an end-to-end tech solution provider under Build Entrepreneurs Ltd with well experienced business & tech professionals. The world is now moving towards Industry 4.0 era and innovate new technology everyday,...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Sales & POS & eCommerce</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Benetrex Sourcing</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">BENETREX Sourcing, a leading textile auxiliary and dye trader in Bangladesh, faced inefficiencies with fragmented operations, inventory tracking, and compliance reporting before implementing Odoo ERP. Odoo integrated ...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Sales & POS</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="services">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Bhaiya Housing Limited</span>
+              <span class="ref-badge services">IT & Services</span>
+            </div>
+            <p class="ref-card-desc">Bhaiya Housing Ltd., a concern of Bhaiya Group, is a leading real estate developer in Bangladesh. Since 2011, it has been delivering modern residential and commercial projects that combine quality, design, and durabil...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">HRMS</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Biriyani Mahal</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">Biriyani Mahal is a premium biriyani and authentic food brand built around rich flavor, traditional cooking, and royal hospitality. With the motto “Authentic in Taste,” Biriyani Mahal brings the timeless taste of perf...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Sales & POS & Accounting</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="services">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Celestial Tech Limited</span>
+              <span class="ref-badge services">IT & Services</span>
+            </div>
+            <p class="ref-card-desc">Celestial Tech Limited is a prominent marine technical solutions provider based in Bangladesh, specializing in the design, integration, and supply of high-performance vessels and marine equipment. Established in 2001 ...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Sales & POS</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Colorjet</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">COLORJET is a leading digital printing solutions provider in Bangladesh, specializing in textile and signage sectors. Established in 2019, the company has delivered 800+ machines nationwide, offering printers, DTF sol...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Purchase</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="manufacturing">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Cross World Group</span>
+              <span class="ref-badge manufacturing">Manufacturing</span>
+            </div>
+            <p class="ref-card-desc">Providers of state of the art diesel generator, Substation, and Power solution with excellent service and maintenance support. Countrywide service network with comprehensive range of quality spare parts. We have been ...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Odoo ERP</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Curepoint Pharmacy & Departmental Store</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">Curepoint Pharmacy & Departmental Store is a trusted community-based retailer, providing a wide range of pharmaceutical products alongside a selection of essential departmental items. With a focus on delivering high-q...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Purchase</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="ngo">
+            <div class="ref-card-header">
+              <span class="ref-client-name">DSectors Services Ltd.</span>
+              <span class="ref-badge ngo">NGO</span>
+            </div>
+            <p class="ref-card-desc">DSECTORS is a knowledge hub that focuses on research, innovation, and idea generation in Bangladesh. They aim to create, manage, and distribute cross-sectoral data and experiences to support development initiatives. T...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">eCommerce</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Dahmashi Trading Company Ltd</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">Dahmashi Trading is a prominent importer and distributor of premium kitchen and bathroom products in Bangladesh. The company sources high-quality sanitary ware from BRAVAT, a renowned German brand known for its high-e...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Sales & POS</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="services">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Donor Plastic Industries</span>
+              <span class="ref-badge services">IT & Services</span>
+            </div>
+            <p class="ref-card-desc">Donor Plastic Industries has been working for 3 decades with a reputation as a trusted partner for pharmaceutical industries in Bangladesh. The company manufactures measuring cups, spoons, pill containers, bottles etc...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">MRP & Inventory</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Dukhan Mart</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">Dukhan Mart is a modern e-commerce platform offering a wide range of products, including daily essentials, electronics, fashion, and household items. Built on Odoo ERP, the platform integrates eCommerce and accounting...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Accounting & eCommerce</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Easy Dhaka Solutions</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">EASYDHAKABD.COM is one of the fastest growing E-commerce sites in Bangladesh which offers directly imported high-end budget friendly products only from UK and China to your doorsteps. EASYDHAKABD.COM is the Authorized...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">eCommerce</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="services">
+            <div class="ref-card-header">
+              <span class="ref-client-name">ExpoPro</span>
+              <span class="ref-badge services">IT & Services</span>
+            </div>
+            <p class="ref-card-desc">EXPOPRO (Center for Business Development and Communications) is a dynamic private-sector Trade and Investment Promotion Organization (TIPO) headquartered in Dhaka, Bangladesh. Since its inception, EXPOPRO has been ded...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Sales & POS & Accounting</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="ngo">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Friendship NGO</span>
+              <span class="ref-badge ngo">NGO</span>
+            </div>
+            <p class="ref-card-desc">Friendship Bangladesh, a Social Purpose Organization founded in 2002, serves marginalized communities in remote rural areas of Bangladesh. With a team of nearly 5000 employees, Friendship addresses critical social iss...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Purchase & Sales & POS</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="manufacturing">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Grameen Danone</span>
+              <span class="ref-badge manufacturing">Manufacturing</span>
+            </div>
+            <p class="ref-card-desc">Grameen Danone Foods Limited, established in 2006 as a pioneering joint venture between the Grameen Group and Groupe Danone, stands as the world’s first corporate social business. Guided by the vision of Nobel Laureat...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">MRP & Inventory</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Green Tiger Electric Vehicle Limited</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">Green Tiger was launched in 2009, with a future vision of establishing a sustainable market in Eco-Friendly Electric Vehicles. The company’s vision is to build itself as a reliable brand for electric vehicles, with co...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Odoo ERP</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Gronthik Prokashon</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">Gronthik Prokashon, established in 2017, has quickly become a distinguished name in Bangladesh’s publishing landscape, known for its dedication to creative and thought-provoking literary contributions. In a short span...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Sales & POS</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="services">
+            <div class="ref-card-header">
+              <span class="ref-client-name">HAJ Corporation</span>
+              <span class="ref-badge services">IT & Services</span>
+            </div>
+            <p class="ref-card-desc">Established in 2010, HAJ Corporation is a dynamic system integrator specializing in a wide range of technology-driven solutions. The company provides services in AI-based surveillance, intelligent business automation,...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Purchase & Sales & POS</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="services">
+            <div class="ref-card-header">
+              <span class="ref-client-name">HAJ Corporation, Rashed Mondol</span>
+              <span class="ref-badge services">IT & Services</span>
+            </div>
+            <p class="ref-card-desc">Odoo ERP implementation covering key business workflows, automated processes, and operations tracking.</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Odoo ERP</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="services">
+            <div class="ref-card-header">
+              <span class="ref-client-name">HammerHead Bangladesh Engineering Services Limited</span>
+              <span class="ref-badge services">IT & Services</span>
+            </div>
+            <p class="ref-card-desc">HammerHead Bangladesh Engineering Services Ltd., established in 2015, was initiated by a group of seasoned entrepreneurs. The company has been recognized for its strong understanding of the local market, coupled with ...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">MRP & Sales & POS</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="manufacturing">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Hasan Rubber Industris (Pvt.) Ltd.</span>
+              <span class="ref-badge manufacturing">Manufacturing</span>
+            </div>
+            <p class="ref-card-desc">In 1982, Mr. Syed Hasnain started AUTO SPARE PARTS business in Bangladesh. He is one of the largest and trusted importer, stockist, distributor and whole saler of spare parts for the light and heavy vehicles, ball and...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">MRP & Inventory</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="manufacturing">
+            <div class="ref-card-header">
+              <span class="ref-client-name">IDIYA Limited</span>
+              <span class="ref-badge manufacturing">Manufacturing</span>
+            </div>
+            <p class="ref-card-desc">IDIYA is a premier furniture destination in New Zealand, standing as one of the nation’s largest parallel importers and wholesalers of IKEA products. With a mission to make high-quality, modern Scandinavian design acc...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Purchase</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Invite Foods Trading</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">Invite Food Trading is a Qatar based business. We are using Odoo for our Accounting and related Modules. From the very beginning, the team at Metamorphosis demonstrated exceptional professionalism, transparency, and i...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Accounting</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">JamiePro bv</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">JamiePro is an established Netherlands-based importer and specialist in high-quality electronic display solutions, with a core focus on digital LCD screens, interactive touch displays, and integrated digital signage s...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Odoo ERP</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="manufacturing">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Jamuna Spacetech Joint Venture Ltd.</span>
+              <span class="ref-badge manufacturing">Manufacturing</span>
+            </div>
+            <p class="ref-card-desc">Jamuna Spacetech Joint Venture Limited (JSJVL), a leader in Bangladesh's LPG sector, faced challenges due to disconnected software systems, leading to delays and inefficiencies across procurement, manufacturing, and d...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">MRP & Inventory</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="services">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Kamrul Hasan Sagar, IPTEC Ltd.</span>
+              <span class="ref-badge services">IT & Services</span>
+            </div>
+            <p class="ref-card-desc">IPTEC is one of the leading Internet Service Providers (ISP) and one-stop Information & Communication Technology (ICT) solution provider in South Sudan. Incorporated in 2011. IPTEC has already expanded its services to...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Odoo ERP</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Kindred Limited</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">Porshi Super Store by Kindred Limited is a dynamic retail chain offering a one-stop shopping destination for quality products at competitive prices. Catering to a diverse customer base, the store features an extensive...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Sales & POS</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Luxury Flowers and Chocolates</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">Luxury Flowers & Chocolates is a Qatar based business. Previous the company used to maintain entire Accounts by Excel but wished to move to a proper ERP system. We are managing Inventory, POS,Sales,Purchase & Accounti...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Purchase</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="manufacturing">
+            <div class="ref-card-header">
+              <span class="ref-client-name">M&U Cycles Ltd.</span>
+              <span class="ref-badge manufacturing">Manufacturing</span>
+            </div>
+            <p class="ref-card-desc">M&U Cycles Limited is one of the largest bicycle manufacturer and exporter in Bangladesh. It is built with all modern facilities and technologies to meet customer requirements. It is a 100% export-oriented company wit...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">MRP & Purchase</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="services">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Master General Company Limited</span>
+              <span class="ref-badge services">IT & Services</span>
+            </div>
+            <p class="ref-card-desc">Master General Company Limited is a trading business that also covers a number of other businesses including Mater Seafood Co. Ltd. The company is involved in global import and export business.</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Purchase</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="services">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Metakave</span>
+              <span class="ref-badge services">IT & Services</span>
+            </div>
+            <p class="ref-card-desc">MetaKave Software Company is a Tech Startup offering Technological Innovation for Web 2.0 and beyond. We have an integrated approach towards your requirement where we cross-pollinate aesthetics, functionality, efficie...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">eCommerce</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="services">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Ninth Sense</span>
+              <span class="ref-badge services">IT & Services</span>
+            </div>
+            <p class="ref-card-desc">Odoo ERP implementation covering key business workflows, automated processes, and operations tracking.</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Odoo ERP</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Opsora Store</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">The story of Opsora Store traces back to its origins as Ornaments House. In 2014, Ornaments House embarked on its journey through Facebook, initially selling jewelry and later expanding into ladies' dresses. Since 201...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Purchase</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="manufacturing">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Organik Chicken</span>
+              <span class="ref-badge manufacturing">Manufacturing</span>
+            </div>
+            <p class="ref-card-desc">Organik Chicken is an agricultural startup company that focuses on antibiotic-free and organic meat production. It is concerned about the growing threat of Antibiotic Resistance and its long-term effect on public heal...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Accounting</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Pastuer Pharmatech Solutions</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">Pasteur Pharmatech Solutions is a mainstream Pharmaceutical Industry equipment supply, service and Support provider company in Bangladesh with a fundamental core value to operate with seamless integrity in pursuit of ...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">MRP & Inventory</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Pathak Shamabesh</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">Pathak Shamabesh, a prominent Bangladeshi publication house established in 1987, is dedicated to fostering a reading culture and intellectual engagement by prioritizing quality literature that arouses consciousness ov...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Purchase</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Pearl Street Holidays</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">Pearl Street Holidays is a dedicated Maldives travel specialist based in Male. They have been crafting tailor-made escapes for travellers from around the world from romantic overwater villa honeymoons to family-friend...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Sales & POS & eCommerce</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="manufacturing">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Premier 1888 Ltd.</span>
+              <span class="ref-badge manufacturing">Manufacturing</span>
+            </div>
+            <p class="ref-card-desc">Established in 1989, Premier 1888 Ltd. is one of the largest manufacturers and exporters of textile terry and non-terry products. Based in Bangladesh, we have 5 production facilities running with the capacity of over ...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">MRP</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="manufacturing">
+            <div class="ref-card-header">
+              <span class="ref-client-name">RD Industries Limited</span>
+              <span class="ref-badge manufacturing">Manufacturing</span>
+            </div>
+            <p class="ref-card-desc">RD Industries Limited specializes in the pyrolysis recycling of around 150,000 end-of-life tyres each year. This process allows us to recover valuable resources like green oil, carbon black, and steel, which are then ...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Purchase</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="manufacturing">
+            <div class="ref-card-header">
+              <span class="ref-client-name">SMET SERVICES</span>
+              <span class="ref-badge manufacturing">Manufacturing</span>
+            </div>
+            <p class="ref-card-desc">SMET SERVICES and Saad Motors (formerly SAAD CNG) is the leading CNG & LPG service provider in Bangladesh. Its experience is the CNG & LPG industry made it pioneer in this sector. At present it has services all over t...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">MRP & Sales & POS</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="manufacturing">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Studio Varmine</span>
+              <span class="ref-badge manufacturing">Manufacturing</span>
+            </div>
+            <p class="ref-card-desc">Studio VARMINE is an architecture consulting firm committed to provide the highest quality of building and interior design and construction services to its valued clients. VARMINE believes in creating environments tha...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">MRP</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="manufacturing">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Surge Engineering</span>
+              <span class="ref-badge manufacturing">Manufacturing</span>
+            </div>
+            <p class="ref-card-desc">Surge Engineering primarily does electrical design, electrical safety audit and energy audits for the industrial and commercial buildings. They also provide professional electrical engineering implementation services ...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Purchase & Sales & POS</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="services">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Swapnanagar Bidyaniketon</span>
+              <span class="ref-badge services">IT & Services</span>
+            </div>
+            <p class="ref-card-desc">Swapnanagar Bidyaniketan is the first-ever school in a rural locality of Chittagong district, Bangladesh. Here children come from neighbouring families sustaining life below the poverty line. Before this school, there...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Accounting</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="services">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Tetra Private Limited</span>
+              <span class="ref-badge services">IT & Services</span>
+            </div>
+            <p class="ref-card-desc">Tetra Private Limited is a social enterprise committed to providing "Water For Life" by deploying affordable water purification technologies in climate-affected coastal communities. Through initiatives like solar-powe...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Accounting</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">The University Press Limited (UPL)</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">The University Press Limited (UPL) is a leading publisher of Bangladesh. It publishes educational, academic and scholarly books both in the English and Bangla languages. UPL was set up as a publishing company in 1974 ...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Purchase</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+          <div class="ref-item-card" data-category="retail">
+            <div class="ref-card-header">
+              <span class="ref-client-name">Tree</span>
+              <span class="ref-badge retail">Wholesale & Retail</span>
+            </div>
+            <p class="ref-card-desc">Tree Living is a Bangladesh-based fashion brand specializing in premium, sustainable apparel, including organic linen jackets and rugged suede outerwear. They offer a curated direct-to-consumer experience, prioritizin...</p>
+            <div class="ref-card-footer">
+              <span class="ref-tech-tag">Inventory & Purchase</span>
+              <span class="ref-status">✓ Complete</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1759,6 +2465,25 @@
         }, 800);
       }
     }
+
+    // ── Client References Directory Filter ────────────────────────────────────
+    document.querySelectorAll('.ref-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.ref-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const filter = btn.getAttribute('data-filter');
+        document.querySelectorAll('.ref-item-card').forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'flex';
+            card.style.opacity = '0';
+            setTimeout(() => { card.style.opacity = '1'; }, 50);
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
   </script>
 </body>
 </html>
