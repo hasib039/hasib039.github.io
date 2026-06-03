@@ -831,6 +831,21 @@
     .ref-status { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 0.02em; }
     
     html[data-theme="light"] .ref-item-card { background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(237,240,244,0.8) 100%); }
+
+    /* Responsive overrides for hero avatar on mobile */
+    @media(max-width:860px) {
+      .hero-avatar {
+        grid-column: 1 / -1 !important;
+        grid-row: auto !important;
+        order: -1;
+        justify-content: flex-start;
+        margin-bottom: 24px;
+      }
+      .avatar-wrap {
+        max-width: 140px !important;
+        border-radius: 16px !important;
+      }
+    }
   </style>
 </head>
 
