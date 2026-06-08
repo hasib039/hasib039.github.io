@@ -876,7 +876,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 110px;
+      min-height: 200px;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       box-shadow: 0 4px 30px rgba(0,0,0,0.2);
     }
@@ -887,13 +887,55 @@
       background: rgba(255,255,255,0.03);
     }
     .ledger-card-title {
-      font-size: 14.5px;
+      font-size: 13.5px;
       font-weight: 600;
       color: #fff;
       line-height: 1.4;
-      margin: 0 0 12px;
+      margin: 0 0 8px;
       font-family: var(--sans);
       letter-spacing: -0.01em;
+    }
+    .ledger-card-desc {
+      font-size: 11px;
+      color: var(--text-3);
+      line-height: 1.6;
+      margin: 0 0 auto;
+      flex: 1;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+    .ledger-card-footer {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .ledger-tech {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      color: var(--text-3);
+      letter-spacing: 0.03em;
+      display: block;
+      margin-bottom: 6px;
+      opacity: 0.7;
+    }
+    .ledger-meta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .ledger-meta-link:hover { text-decoration: underline; }
+    .ledger-meta-logo {
+      height: 18px;
+      width: auto;
+      object-fit: contain;
+      border-radius: 3px;
+      vertical-align: middle;
+      display: inline;
     }
     .ledger-badge {
       font-family: var(--mono);
@@ -998,6 +1040,18 @@
       color: var(--text-3);
       border-color: rgba(0, 0, 0, 0.08);
       background: rgba(0, 0, 0, 0.02);
+    }
+    html[data-theme="light"] .ledger-card-desc {
+      color: #6B7280;
+    }
+    html[data-theme="light"] .ledger-tech {
+      color: #9CA3AF;
+    }
+    html[data-theme="light"] .ledger-card-footer {
+      border-top-color: rgba(0,0,0,0.07);
+    }
+    html[data-theme="light"] .ledger-section p {
+      color: #374151;
     }
     html[data-theme="light"] .ledger-grid-title-wrap h3 {
       color: #111827;
@@ -1391,9 +1445,9 @@
           </div>
         </article>
       </div>
-                  <!-- ENTERPRISE DEPLOYMENT LEDGER -->
+                    <!-- ENTERPRISE DEPLOYMENT LEDGER -->
   <section id="deployment-ledger" class="ledger-section">
-    <!-- Ambient space-purple glow -->
+    <!-- Ambient glow -->
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#00D2FF]/5 rounded-full blur-[120px] pointer-events-none" aria-hidden="true"></div>
     
     <div class="shell relative z-10">
@@ -1403,584 +1457,491 @@
           <span class="eyebrow">// SYSTEM REGISTRY</span>
           <h2>Enterprise Deployment Ledger</h2>
           <p>
-            A high-density registry of Odoo ERP environments custom-configured, audited, and optimized under Metamorphosis Ltd. (Odoo Gold Partner).
+            A curated registry of the 37 Odoo ERP environments I personally led, implemented, and optimized — delivered under
+            <a href="https://www.odoo.com/partners/metamorphosis-ltd-1132898" target="_blank" rel="noopener noreferrer" class="ledger-meta-link">
+              <img src="https://www.odoo.com/web/image/res.partner/1132898/logo" alt="Metamorphosis Ltd. Odoo Gold Partner" class="ledger-meta-logo" loading="lazy" />
+              Metamorphosis Ltd.
+            </a>
+            — Bangladesh's first Odoo Country Partner.
           </p>
         </div>
         
         <!-- Search & Filter Block -->
         <div style="display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 500px;">
           <div class="ledger-search-wrap">
-            <input type="text" placeholder="Search systems ledger..." class="ledger-search" />
+            <input type="text" placeholder="Search deployments..." class="ledger-search" />
             <svg class="ledger-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
             </svg>
           </div>
           
           <div class="ledger-filters">
-            <button class="ledger-filter-btn active" data-filter="all">All (66)</button>
-            <button class="ledger-filter-btn" data-filter="manufacturing">Manufacturing (15)</button>
-            <button class="ledger-filter-btn" data-filter="retail">Wholesale &amp; Retail (30)</button>
-            <button class="ledger-filter-btn" data-filter="services">IT &amp; Services (18)</button>
-            <button class="ledger-filter-btn" data-filter="ngo">NGO (3)</button>
+            <button class="ledger-filter-btn active" data-filter="all">All (37)</button>
+            <button class="ledger-filter-btn" data-filter="manufacturing">Manufacturing (11)</button>
+            <button class="ledger-filter-btn" data-filter="retail">Wholesale &amp; Retail (17)</button>
+            <button class="ledger-filter-btn" data-filter="services">IT &amp; Services (8)</button>
+            <button class="ledger-filter-btn" data-filter="ngo">NGO (1)</button>
           </div>
         </div>
       </div>
       
-      <!-- Ledger Grid 1: Personal Engagements (37) -->
-      <div class="ledger-grid-title-wrap" id="personal-title-wrap">
-        <h3>My Personal Deployments (37)</h3>
-        <p>Environments I personally custom-configured, audited, and optimized as Lead Business Analyst, Lead Implementor, or Support Consultant.</p>
-      </div>
-      <div class="ledger-grid" id="personal-grid" style="margin-bottom: 48px;">
+      <!-- Ledger Grid -->
+      <div class="ledger-grid">
         <!-- Card 1: Adarsha -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Adarsha</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge implementor">Lead Implementor</span>
+          <p class="ledger-card-desc">Adarsha Publication is a prominent name in Bangladesh's publishing industry, known for its dedication to quality and intellectual growth. Odoo streamlined their inventory, POS, and accounting workflows.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Website · Inventory · POS · Accounting</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge implementor">Lead Implementor</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 2: Ajit Saha Bangladesh Limited -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">Ajit Saha Bangladesh Limited</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge analyst">Lead Business Analyst</span>
+          <p class="ledger-card-desc">Ajit Saha Bangladesh Limited is dedicated to empowering farmers through high-quality seeds and innovative pest control solutions. Odoo centralized their purchase, inventory, and accounting operations.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Purchase · Inventory · Accounting · Sales</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge analyst">Lead Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 3: Alchem Enterprise -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Alchem Enterprise</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge support">Support Consultant</span>
+          <p class="ledger-card-desc">Alchem Enterprise specializes in supplying high-value APIs and excipients to Bangladesh's pharmaceutical and nutraceutical industries. Odoo unified procurement, inventory, CRM and finance workflows.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Procurement · Inventory · CRM · Finance</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge support">Support Consultant</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 4: Anan Enterprise -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Anan Enterprise</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge implementor">Lead Implementor</span>
+          <p class="ledger-card-desc">Anan Enterprise is a rapidly growing super shop in Bangladesh. Odoo digitalized their retail operations through POS, inventory management, and integrated accounting and finance.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Inventory · Accounting · POS</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge implementor">Lead Implementor</span>
             <span class="ledger-badge analyst">Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 5: Aristo Food -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Aristo Food</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge support">Support Consultant</span>
+          <p class="ledger-card-desc">Aristo Food is a food distribution and retail business in Bangladesh, providing quality food products to consumers and businesses. Odoo manages their inventory, purchase, and sales workflows.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Inventory · Purchase · Sales</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge support">Support Consultant</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 6: Baatighar -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Baatighar</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge implementor">Lead Implementor</span>
+          <p class="ledger-card-desc">Baatighar is a premier book store in Bangladesh with three large-scale physical stores and over 90,000 unique book titles. Odoo enabled multi-company eCommerce, POS, and inventory management.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">eCommerce · POS · Inventory · Accounting</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge implementor">Lead Implementor</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 7: Bel Group -->
         <div class="ledger-card" data-category="services">
           <h3 class="ledger-card-title">Bel Group</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge analyst">Lead Business Analyst</span>
+          <p class="ledger-card-desc">BelTech is an end-to-end tech solution provider under Build Entrepreneurs Ltd., with a focus on Industry 4.0 innovation and technology. Odoo supports their business workflows and service operations.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Sales · POS · eCommerce</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge analyst">Lead Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 8: Biriyani Mahal -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Biriyani Mahal</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge implementor">Lead Implementor</span>
+          <p class="ledger-card-desc">Biriyani Mahal is a premium biriyani and authentic food brand built around rich flavor and traditional cooking. Odoo powers their POS, Kitchen Order Ticket system, and accounting.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">POS · Kitchen Order · Accounting · Sales</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge implementor">Lead Implementor</span>
             <span class="ledger-badge analyst">Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 9: BSEP Bangladesh -->
         <div class="ledger-card" data-category="ngo">
           <h3 class="ledger-card-title">BSEP Bangladesh</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge analyst">Lead Business Analyst</span>
+          <p class="ledger-card-desc">BSEP is a trusted Manufacturing &amp; Trading company for Fire Safety &amp; Electro-Mechanical products. Odoo streamlined their sales, inventory, accounting, and email marketing operations.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Sales · Inventory · Accounting · Email Marketing</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge analyst">Lead Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 10: Cross World Group -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">Cross World Group</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge support">Support Consultant</span>
+          <p class="ledger-card-desc">Cross World Group provides state-of-the-art diesel generators, substations, and power solutions with nationwide service network and comprehensive spare parts support.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Odoo ERP</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge support">Support Consultant</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 11: Curepoint Pharmacy & Departmental Store -->
         <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Curepoint Pharmacy & Departmental Store</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge implementor">Lead Implementor</span>
+          <h3 class="ledger-card-title">Curepoint Pharmacy &amp; Departmental Store</h3>
+          <p class="ledger-card-desc">Curepoint Pharmacy &amp; Departmental Store is a trusted community-based retailer providing pharmaceutical products alongside essential departmental items. Odoo manages their POS, accounting, purchase, and inventory.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">POS · Accounting · Purchase · Inventory</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge implementor">Lead Implementor</span>
             <span class="ledger-badge analyst">Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 12: DesiDale -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">DesiDale</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge implementor">Implementor</span>
+          <p class="ledger-card-desc">DesiDale is a modern e-commerce platform serving Bangladeshi consumers with quality products at competitive prices. Odoo manages their online storefront, inventory, and business operations.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">eCommerce · Inventory · Sales</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge implementor">Implementor</span>
             <span class="ledger-badge analyst">Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 13: Donor Plastic Industries -->
         <div class="ledger-card" data-category="services">
           <h3 class="ledger-card-title">Donor Plastic Industries</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge implementor">Lead Implementor</span>
+          <p class="ledger-card-desc">Donor Plastic Industries has served Bangladesh's pharmaceutical industry for 3 decades, manufacturing measuring cups, spoons, pill containers, and bottles. Odoo unified their production, sales, and inventory.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Purchase · Sales · Inventory · Manufacturing</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge implementor">Lead Implementor</span>
             <span class="ledger-badge analyst">Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 14: Easy Dhaka Solutions -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Easy Dhaka Solutions</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge analyst">Business Analyst</span>
+          <p class="ledger-card-desc">EASYDHAKABD.COM is one of the fastest growing E-commerce sites in Bangladesh offering directly imported products from UK and China. Odoo supports their digital retail and eCommerce operations.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">eCommerce</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge analyst">Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 15: Ekattor -->
         <div class="ledger-card" data-category="services">
           <h3 class="ledger-card-title">Ekattor</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge support">Support Consultant</span>
+          <p class="ledger-card-desc">Ekattor is an IT and digital services company in Bangladesh providing technology solutions to businesses. Odoo supports their project management, service delivery, and accounting workflows.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Project · Services · Accounting</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge support">Support Consultant</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 16: Fatullah Group -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">Fatullah Group</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge implementor">Lead Implementor</span>
+          <p class="ledger-card-desc">Fatullah Group is a manufacturing conglomerate based in Narayanganj, Bangladesh, operating across multiple industrial sectors. Odoo manages their manufacturing, inventory, procurement, and finance operations.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">MRP · Inventory · Purchase · Finance</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge implementor">Lead Implementor</span>
             <span class="ledger-badge analyst">Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 17: Fish Vally -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">Fish Vally</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge support">Support Consultant</span>
+          <p class="ledger-card-desc">Fish Vally is an aquaculture and fish processing company in Bangladesh, providing fresh and processed seafood products to local and export markets. Odoo manages production and inventory workflows.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Manufacturing · Inventory · Sales</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge support">Support Consultant</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 18: Fitment Craft -->
         <div class="ledger-card" data-category="services">
           <h3 class="ledger-card-title">Fitment Craft</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge implementor">Lead Implementor</span>
+          <p class="ledger-card-desc">Fitment Craft is a specialized services company in Bangladesh delivering custom fitting and craftsmanship solutions. Odoo manages their service workflows, inventory, and financial operations.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Sales · Inventory · Accounting</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge implementor">Lead Implementor</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 19: Green Tiger Electric Vehicle Limited -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Green Tiger Electric Vehicle Limited</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge analyst">Lead Business Analyst</span>
+          <p class="ledger-card-desc">Green Tiger was launched in 2009 with a vision of establishing a sustainable market in Eco-Friendly Electric Vehicles. Odoo supports their product management and business workflows.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Odoo ERP</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge analyst">Lead Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 20: Gronthik Prokashon -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Gronthik Prokashon</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge implementor">Lead Implementor</span>
+          <p class="ledger-card-desc">Gronthik Prokashon, established in 2017, has quickly become a distinguished name in Bangladesh's publishing landscape. Odoo manages their eCommerce, inventory, invoicing, accounting, and POS.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">eCommerce · Inventory · Invoicing · POS</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge implementor">Lead Implementor</span>
             <span class="ledger-badge analyst">Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 21: HAJ Corporation -->
         <div class="ledger-card" data-category="services">
           <h3 class="ledger-card-title">HAJ Corporation</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge implementor">Lead Implementor</span>
+          <p class="ledger-card-desc">HAJ Corporation is a dynamic system integrator specializing in AI-based surveillance, business automation, and technology-driven solutions. Odoo manages purchase, sales, CRM, project management, and accounting.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Purchase · Sales · CRM · Project · Accounting</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge implementor">Lead Implementor</span>
             <span class="ledger-badge analyst">Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 22: IDIYA Limited -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">IDIYA Limited</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge support">Support Consultant</span>
+          <p class="ledger-card-desc">IDIYA is one of New Zealand's largest parallel importers and wholesalers of IKEA products, delivering modern Scandinavian design accessibility. Odoo manages their eCommerce, inventory, sales, and invoicing.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">eCommerce · Sales · Inventory · Invoicing</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge support">Support Consultant</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 23: Islampur Market -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Islampur Market</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge support">Support Consultant</span>
+          <p class="ledger-card-desc">Islampur Market is a wholesale trade hub in Dhaka, Bangladesh specializing in fabric and textile distribution. Odoo manages their wholesale operations, inventory, and financial workflows.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Inventory · Sales · Accounting</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge support">Support Consultant</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 24: Jamuna Spacetech Joint Venture Ltd. -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">Jamuna Spacetech Joint Venture Ltd.</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge analyst">Business Analyst</span>
+          <p class="ledger-card-desc">Jamuna Spacetech Joint Venture Ltd. (JSJVL) is a leader in Bangladesh's LPG sector. Odoo ERP centralized their operations, supply chain, inventory, and finance in one unified platform.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">MRP · Inventory · Supply Chain · Finance</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge analyst">Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 25: Kindred Limited -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Kindred Limited</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge implementor">Lead Implementor</span>
+          <p class="ledger-card-desc">Porshi Super Store by Kindred Limited is a dynamic retail chain offering a one-stop shopping destination for quality products. Odoo manages their supply chain, inventory, POS, and accounting.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Inventory · POS · Accounting &amp; Finance</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge implementor">Lead Implementor</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 26: M&U Cycles Ltd. -->
         <div class="ledger-card" data-category="manufacturing">
-          <h3 class="ledger-card-title">M&U Cycles Ltd.</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge analyst">Lead Business Analyst</span>
+          <h3 class="ledger-card-title">M&amp;U Cycles Ltd.</h3>
+          <p class="ledger-card-desc">M&amp;U Cycles Limited is one of the largest bicycle manufacturers and exporters in Bangladesh, built with modern facilities for international markets. Odoo manages their accounting, purchase, manufacturing, and sales.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Accounting · Purchase · Manufacturing · Sales</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge analyst">Lead Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 27: Master General Company Limited -->
         <div class="ledger-card" data-category="services">
           <h3 class="ledger-card-title">Master General Company Limited</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge support">Support Consultant</span>
+          <p class="ledger-card-desc">Master General Company Limited is a trading business covering seafood and global import/export. Odoo manages their accounting, sales, purchase, inventory, CRM, and email marketing.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Accounting · Sales · Purchase · Inventory · CRM</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge support">Support Consultant</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 28: Need Groceries -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Need Groceries</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge implementor">Lead Implementor</span>
+          <p class="ledger-card-desc">Need Groceries is an online grocery delivery platform serving households in Bangladesh with daily essentials. Odoo manages their eCommerce, inventory, order management, and accounting.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">eCommerce · Inventory · Accounting</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge implementor">Lead Implementor</span>
             <span class="ledger-badge analyst">Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 29: Organik Chicken -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">Organik Chicken</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge implementor">Lead Implementor</span>
+          <p class="ledger-card-desc">Organik Chicken is an agricultural startup focused on antibiotic-free and organic meat production to combat Antibiotic Resistance. Odoo manages their website, eCommerce, delivery, inventory, and accounting.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Website · eCommerce · Inventory · Accounting</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge implementor">Lead Implementor</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 30: Premier 1888 Ltd. -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">Premier 1888 Ltd.</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge implementor">Implementor</span>
+          <p class="ledger-card-desc">Established in 1989, Premier 1888 Ltd. is one of the largest manufacturers and exporters of textile terry and non-terry products in Bangladesh, with 5 production facilities.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">MRP</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge implementor">Implementor</span>
             <span class="ledger-badge analyst">Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 31: Shanta Lifestyle -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Shanta Lifestyle</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge analyst">Lead Business Analyst</span>
+          <p class="ledger-card-desc">Shanta Lifestyle is a premium lifestyle and fashion retail brand in Bangladesh, offering curated collections across apparel and accessories. Odoo streamlines their retail operations and inventory.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">POS · Inventory · Sales</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge analyst">Lead Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 32: Smart Distribution (Pvt) Ltd -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Smart Distribution (Pvt) Ltd</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge support">Support Consultant</span>
+          <p class="ledger-card-desc">Smart Distribution (Pvt) Ltd is a distribution company managing supply chain and logistics across Bangladesh. Odoo powers their distribution operations, inventory management, and accounting.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Inventory · Sales · Purchase · Accounting</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge support">Support Consultant</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 33: SMET SERVICES -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">SMET SERVICES</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge implementor">Implementor</span>
+          <p class="ledger-card-desc">SMET SERVICES and Saad Motors (formerly SAAD CNG) is the leading CNG &amp; LPG service provider in Bangladesh. Odoo manages their supply chain, manufacturing, and accounting &amp; finance.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Supply Chain · Manufacturing · Accounting</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge implementor">Implementor</span>
             <span class="ledger-badge analyst">Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 34: Studio Varmine -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">Studio Varmine</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge implementor">Lead Implementor</span>
+          <p class="ledger-card-desc">Studio VARMINE is an architecture consulting firm committed to providing the highest quality building and interior design and construction services to its valued clients.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">MRP</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge implementor">Lead Implementor</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 35: Tetra Private Limited -->
         <div class="ledger-card" data-category="services">
           <h3 class="ledger-card-title">Tetra Private Limited</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge implementor">Lead Implementor</span>
+          <p class="ledger-card-desc">Tetra Private Limited is a social enterprise providing "Water For Life" by deploying affordable water purification technologies in climate-affected coastal communities. Odoo manages field service, inventory, and accounting.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Field Service · Inventory · Project Accounting</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge implementor">Lead Implementor</span>
             <span class="ledger-badge analyst">Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 36: The University Press Limited (UPL) -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">The University Press Limited (UPL)</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge implementor">Lead Implementor</span>
+          <p class="ledger-card-desc">The University Press Limited (UPL) is a leading publisher of Bangladesh, publishing educational, academic and scholarly books in English and Bangla since 1974. Odoo manages eCommerce, sales, POS, purchase, and inventory.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Website · eCommerce · Sales · POS · Inventory</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge implementor">Lead Implementor</span>
             <span class="ledger-badge analyst">Business Analyst</span>
+            </div>
           </div>
         </div>
 
         <!-- Card 37: Vantage -->
         <div class="ledger-card" data-category="services">
           <h3 class="ledger-card-title">Vantage</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge support">Support Consultant</span>
+          <p class="ledger-card-desc">Vantage is a technology services company focused on delivering digital transformation and business solutions. Odoo supports their operations management and business analytics workflows.</p>
+          <div class="ledger-card-footer">
+            <span class="ledger-tech">Sales · CRM · Accounting</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+              <span class="ledger-badge support">Support Consultant</span>
             <span class="ledger-badge analyst">Business Analyst</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Divider -->
-      <div class="ledger-divider" id="ledger-grid-divider"></div>
-
-      <!-- Ledger Grid 2: Firm wide Portfolio (29) -->
-      <div class="ledger-grid-title-wrap" id="firm-title-wrap">
-        <h3>Other Metamorphosis Ltd. Deployments (29)</h3>
-        <p>Other major enterprise environments delivered and supported by the Metamorphosis Ltd. team.</p>
-      </div>
-      <div class="ledger-grid" id="firm-grid">
-        <!-- Card 38: Agile Minds Solutions Limited -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Agile Minds Solutions Limited</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 39: AI for Business Transformation (AI4BT) -->
-        <div class="ledger-card" data-category="services">
-          <h3 class="ledger-card-title">AI for Business Transformation (AI4BT)</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 40: Benetrex Sourcing -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Benetrex Sourcing</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 41: Bhaiya Housing Limited -->
-        <div class="ledger-card" data-category="services">
-          <h3 class="ledger-card-title">Bhaiya Housing Limited</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 42: Celestial Tech Limited -->
-        <div class="ledger-card" data-category="services">
-          <h3 class="ledger-card-title">Celestial Tech Limited</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 43: Colorjet -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Colorjet</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 44: Dahmashi Trading Company Ltd -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Dahmashi Trading Company Ltd</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 45: DSectors Services Ltd. -->
-        <div class="ledger-card" data-category="ngo">
-          <h3 class="ledger-card-title">DSectors Services Ltd.</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 46: Dukhan Mart -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Dukhan Mart</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 47: ExpoPro -->
-        <div class="ledger-card" data-category="services">
-          <h3 class="ledger-card-title">ExpoPro</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 48: Friendship NGO -->
-        <div class="ledger-card" data-category="ngo">
-          <h3 class="ledger-card-title">Friendship NGO</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 49: Grameen Danone -->
-        <div class="ledger-card" data-category="manufacturing">
-          <h3 class="ledger-card-title">Grameen Danone</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 50: HAJ Corporation, Rashed Mondol -->
-        <div class="ledger-card" data-category="services">
-          <h3 class="ledger-card-title">HAJ Corporation, Rashed Mondol</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 51: HammerHead Bangladesh Engineering Services Limited -->
-        <div class="ledger-card" data-category="services">
-          <h3 class="ledger-card-title">HammerHead Bangladesh Engineering Services Limited</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 52: Hasan Rubber Industris (Pvt.) Ltd. -->
-        <div class="ledger-card" data-category="manufacturing">
-          <h3 class="ledger-card-title">Hasan Rubber Industris (Pvt.) Ltd.</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 53: Invite Foods Trading -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Invite Foods Trading</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 54: JamiePro bv -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">JamiePro bv</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 55: Kamrul Hasan Sagar, IPTEC Ltd. -->
-        <div class="ledger-card" data-category="services">
-          <h3 class="ledger-card-title">Kamrul Hasan Sagar, IPTEC Ltd.</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 56: Luxury Flowers and Chocolates -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Luxury Flowers and Chocolates</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 57: Metakave -->
-        <div class="ledger-card" data-category="services">
-          <h3 class="ledger-card-title">Metakave</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 58: Ninth Sense -->
-        <div class="ledger-card" data-category="services">
-          <h3 class="ledger-card-title">Ninth Sense</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 59: Opsora Store -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Opsora Store</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 60: Pastuer Pharmatech Solutions -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Pastuer Pharmatech Solutions</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 61: Pathak Shamabesh -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Pathak Shamabesh</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 62: Pearl Street Holidays -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Pearl Street Holidays</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 63: RD Industries Limited -->
-        <div class="ledger-card" data-category="manufacturing">
-          <h3 class="ledger-card-title">RD Industries Limited</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 64: Surge Engineering -->
-        <div class="ledger-card" data-category="manufacturing">
-          <h3 class="ledger-card-title">Surge Engineering</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 65: Swapnanagar Bidyaniketon -->
-        <div class="ledger-card" data-category="services">
-          <h3 class="ledger-card-title">Swapnanagar Bidyaniketon</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 66: Tree -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Tree</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
+            </div>
           </div>
         </div>
       </div>
@@ -2562,66 +2523,33 @@
     // ── Enterprise Deployment Ledger Filter & Search ──────────────────────────
     const searchInput = document.querySelector('.ledger-search');
     const filterBtns = document.querySelectorAll('.ledger-filter-btn');
+    const ledgerGrid = document.querySelector('.ledger-grid');
     
     let activeFilter = 'all';
     let searchQuery = '';
     
     function updateLedger() {
-      const grids = ['personal-grid', 'firm-grid'];
-      let visibleGridsCount = 0;
+      if (!ledgerGrid) return;
+      const cards = ledgerGrid.querySelectorAll('.ledger-card');
       
-      grids.forEach(gridId => {
-        const grid = document.getElementById(gridId);
-        if (!grid) return;
+      cards.forEach(card => {
+        const title = (card.querySelector('.ledger-card-title') || {}).textContent || '';
+        const desc = (card.querySelector('.ledger-card-desc') || {}).textContent || '';
+        const category = card.getAttribute('data-category') || '';
         
-        const cards = grid.querySelectorAll('.ledger-card');
-        let visibleCount = 0;
+        const matchesCategory = activeFilter === 'all' || category === activeFilter;
+        const matchesSearch = !searchQuery ||
+          title.toLowerCase().includes(searchQuery) ||
+          desc.toLowerCase().includes(searchQuery);
         
-        cards.forEach(card => {
-          const title = card.querySelector('.ledger-card-title').textContent.toLowerCase();
-          const category = card.getAttribute('data-category');
-          
-          const matchesCategory = activeFilter === 'all' || category.split(' ').includes(activeFilter);
-          const matchesSearch = title.includes(searchQuery);
-          
-          if (matchesCategory && matchesSearch) {
-            card.style.display = 'flex';
-            card.style.opacity = '0';
-            setTimeout(() => { card.style.opacity = '1'; }, 50);
-            visibleCount++;
-          } else {
-            card.style.display = 'none';
-          }
-        });
-        
-        const titleWrapId = gridId === 'personal-grid' ? 'personal-title-wrap' : 'firm-title-wrap';
-        const titleWrap = document.getElementById(titleWrapId);
-        
-        if (visibleCount === 0) {
-          if (titleWrap) titleWrap.style.display = 'none';
-          grid.style.display = 'none';
+        if (matchesCategory && matchesSearch) {
+          card.style.display = 'flex';
+          card.style.opacity = '0';
+          setTimeout(() => { card.style.opacity = '1'; }, 50);
         } else {
-          if (titleWrap) titleWrap.style.display = 'block';
-          grid.style.display = 'grid';
-          visibleGridsCount++;
+          card.style.display = 'none';
         }
       });
-      
-      // Handle the divider dynamically
-      const divider = document.getElementById('ledger-grid-divider');
-      if (divider) {
-        // Show divider only if both grids have visible elements
-        const personalGrid = document.getElementById('personal-grid');
-        const firmGrid = document.getElementById('firm-grid');
-        const personalVisible = personalGrid && personalGrid.style.display !== 'none';
-        const firmVisible = firmGrid && firmGrid.style.display !== 'none';
-        
-        if (personalVisible && firmVisible) {
-          divider.style.display = 'block';
-        } else {
-          divider.style.display = 'none';
-        }
-      }
     }
     
     if (searchInput) {
