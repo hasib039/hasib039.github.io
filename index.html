@@ -925,6 +925,34 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(255, 255, 255, 0.02);
     }
+    .ledger-grid-title-wrap {
+      margin-bottom: 24px;
+      border-left: 3px solid var(--accent);
+      padding-left: 12px;
+    }
+    .ledger-grid-title-wrap h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+      margin: 0 0 6px;
+      font-family: 'Plus Jakarta Sans', var(--sans);
+    }
+    .ledger-grid-title-wrap p {
+      font-size: 13.5px;
+      color: var(--text-2);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .ledger-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+      margin: 48px 0;
+    }
+    .ledger-badge.firm {
+      color: var(--text-3);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.02);
+    }
 
     html[data-theme="light"] .ledger-section {
       background: #F3F4F6 !important;
@@ -965,6 +993,17 @@
     }
     html[data-theme="light"] .ledger-filter-btn.active {
       background: rgba(0, 210, 255, 0.06);
+    }
+    html[data-theme="light"] .ledger-badge.firm {
+      color: var(--text-3);
+      border-color: rgba(0, 0, 0, 0.08);
+      background: rgba(0, 0, 0, 0.02);
+    }
+    html[data-theme="light"] .ledger-grid-title-wrap h3 {
+      color: #111827;
+    }
+    html[data-theme="light"] .ledger-divider {
+      background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.08), transparent);
     }
     html[data-theme="light"] .ledger-badge.firm {
       color: var(--text-3);
@@ -1352,7 +1391,7 @@
           </div>
         </article>
       </div>
-                <!-- ENTERPRISE DEPLOYMENT LEDGER -->
+                  <!-- ENTERPRISE DEPLOYMENT LEDGER -->
   <section id="deployment-ledger" class="ledger-section">
     <!-- Ambient space-purple glow -->
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#00D2FF]/5 rounded-full blur-[120px] pointer-events-none" aria-hidden="true"></div>
@@ -1387,8 +1426,12 @@
         </div>
       </div>
       
-      <!-- Ledger Grid -->
-      <div class="ledger-grid">
+      <!-- Ledger Grid 1: Personal Engagements (37) -->
+      <div class="ledger-grid-title-wrap" id="personal-title-wrap">
+        <h3>My Personal Deployments (37)</h3>
+        <p>Environments I personally custom-configured, audited, and optimized as Lead Business Analyst, Lead Implementor, or Support Consultant.</p>
+      </div>
+      <div class="ledger-grid" id="personal-grid" style="margin-bottom: 48px;">
         <!-- Card 1: Adarsha -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Adarsha</h3>
@@ -1397,23 +1440,7 @@
           </div>
         </div>
 
-        <!-- Card 2: Agile Minds Solutions Limited -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Agile Minds Solutions Limited</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 3: AI for Business Transformation (AI4BT) -->
-        <div class="ledger-card" data-category="services">
-          <h3 class="ledger-card-title">AI for Business Transformation (AI4BT)</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 4: Ajit Saha Bangladesh Limited -->
+        <!-- Card 2: Ajit Saha Bangladesh Limited -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">Ajit Saha Bangladesh Limited</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1421,7 +1448,7 @@
           </div>
         </div>
 
-        <!-- Card 5: Alchem Enterprise -->
+        <!-- Card 3: Alchem Enterprise -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Alchem Enterprise</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1429,7 +1456,7 @@
           </div>
         </div>
 
-        <!-- Card 6: Anan Enterprise -->
+        <!-- Card 4: Anan Enterprise -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Anan Enterprise</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1438,7 +1465,7 @@
           </div>
         </div>
 
-        <!-- Card 7: Aristo Food -->
+        <!-- Card 5: Aristo Food -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Aristo Food</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1446,7 +1473,7 @@
           </div>
         </div>
 
-        <!-- Card 8: Baatighar -->
+        <!-- Card 6: Baatighar -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Baatighar</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1454,7 +1481,7 @@
           </div>
         </div>
 
-        <!-- Card 9: Bel Group -->
+        <!-- Card 7: Bel Group -->
         <div class="ledger-card" data-category="services">
           <h3 class="ledger-card-title">Bel Group</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1462,23 +1489,7 @@
           </div>
         </div>
 
-        <!-- Card 10: Benetrex Sourcing -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Benetrex Sourcing</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 11: Bhaiya Housing Limited -->
-        <div class="ledger-card" data-category="services">
-          <h3 class="ledger-card-title">Bhaiya Housing Limited</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 12: Biriyani Mahal -->
+        <!-- Card 8: Biriyani Mahal -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Biriyani Mahal</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1487,7 +1498,7 @@
           </div>
         </div>
 
-        <!-- Card 13: BSEP Bangladesh -->
+        <!-- Card 9: BSEP Bangladesh -->
         <div class="ledger-card" data-category="ngo">
           <h3 class="ledger-card-title">BSEP Bangladesh</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1495,23 +1506,7 @@
           </div>
         </div>
 
-        <!-- Card 14: Celestial Tech Limited -->
-        <div class="ledger-card" data-category="services">
-          <h3 class="ledger-card-title">Celestial Tech Limited</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 15: Colorjet -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Colorjet</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 16: Cross World Group -->
+        <!-- Card 10: Cross World Group -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">Cross World Group</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1519,7 +1514,7 @@
           </div>
         </div>
 
-        <!-- Card 17: Curepoint Pharmacy & Departmental Store -->
+        <!-- Card 11: Curepoint Pharmacy & Departmental Store -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Curepoint Pharmacy & Departmental Store</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1528,15 +1523,7 @@
           </div>
         </div>
 
-        <!-- Card 18: Dahmashi Trading Company Ltd -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Dahmashi Trading Company Ltd</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 19: DesiDale -->
+        <!-- Card 12: DesiDale -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">DesiDale</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1545,7 +1532,7 @@
           </div>
         </div>
 
-        <!-- Card 20: Donor Plastic Industries -->
+        <!-- Card 13: Donor Plastic Industries -->
         <div class="ledger-card" data-category="services">
           <h3 class="ledger-card-title">Donor Plastic Industries</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1554,23 +1541,7 @@
           </div>
         </div>
 
-        <!-- Card 21: DSectors Services Ltd. -->
-        <div class="ledger-card" data-category="ngo">
-          <h3 class="ledger-card-title">DSectors Services Ltd.</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 22: Dukhan Mart -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Dukhan Mart</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 23: Easy Dhaka Solutions -->
+        <!-- Card 14: Easy Dhaka Solutions -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Easy Dhaka Solutions</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1578,7 +1549,7 @@
           </div>
         </div>
 
-        <!-- Card 24: Ekattor -->
+        <!-- Card 15: Ekattor -->
         <div class="ledger-card" data-category="services">
           <h3 class="ledger-card-title">Ekattor</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1586,15 +1557,7 @@
           </div>
         </div>
 
-        <!-- Card 25: ExpoPro -->
-        <div class="ledger-card" data-category="services">
-          <h3 class="ledger-card-title">ExpoPro</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 26: Fatullah Group -->
+        <!-- Card 16: Fatullah Group -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">Fatullah Group</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1603,7 +1566,7 @@
           </div>
         </div>
 
-        <!-- Card 27: Fish Vally -->
+        <!-- Card 17: Fish Vally -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">Fish Vally</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1611,7 +1574,7 @@
           </div>
         </div>
 
-        <!-- Card 28: Fitment Craft -->
+        <!-- Card 18: Fitment Craft -->
         <div class="ledger-card" data-category="services">
           <h3 class="ledger-card-title">Fitment Craft</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1619,23 +1582,7 @@
           </div>
         </div>
 
-        <!-- Card 29: Friendship NGO -->
-        <div class="ledger-card" data-category="ngo">
-          <h3 class="ledger-card-title">Friendship NGO</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 30: Grameen Danone -->
-        <div class="ledger-card" data-category="manufacturing">
-          <h3 class="ledger-card-title">Grameen Danone</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 31: Green Tiger Electric Vehicle Limited -->
+        <!-- Card 19: Green Tiger Electric Vehicle Limited -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Green Tiger Electric Vehicle Limited</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1643,7 +1590,7 @@
           </div>
         </div>
 
-        <!-- Card 32: Gronthik Prokashon -->
+        <!-- Card 20: Gronthik Prokashon -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Gronthik Prokashon</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1652,7 +1599,7 @@
           </div>
         </div>
 
-        <!-- Card 33: HAJ Corporation -->
+        <!-- Card 21: HAJ Corporation -->
         <div class="ledger-card" data-category="services">
           <h3 class="ledger-card-title">HAJ Corporation</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1661,31 +1608,7 @@
           </div>
         </div>
 
-        <!-- Card 34: HAJ Corporation, Rashed Mondol -->
-        <div class="ledger-card" data-category="services">
-          <h3 class="ledger-card-title">HAJ Corporation, Rashed Mondol</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 35: HammerHead Bangladesh Engineering Services Limited -->
-        <div class="ledger-card" data-category="services">
-          <h3 class="ledger-card-title">HammerHead Bangladesh Engineering Services Limited</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 36: Hasan Rubber Industris (Pvt.) Ltd. -->
-        <div class="ledger-card" data-category="manufacturing">
-          <h3 class="ledger-card-title">Hasan Rubber Industris (Pvt.) Ltd.</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 37: IDIYA Limited -->
+        <!-- Card 22: IDIYA Limited -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">IDIYA Limited</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1693,15 +1616,7 @@
           </div>
         </div>
 
-        <!-- Card 38: Invite Foods Trading -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Invite Foods Trading</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 39: Islampur Market -->
+        <!-- Card 23: Islampur Market -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Islampur Market</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1709,15 +1624,7 @@
           </div>
         </div>
 
-        <!-- Card 40: JamiePro bv -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">JamiePro bv</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 41: Jamuna Spacetech Joint Venture Ltd. -->
+        <!-- Card 24: Jamuna Spacetech Joint Venture Ltd. -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">Jamuna Spacetech Joint Venture Ltd.</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1725,15 +1632,7 @@
           </div>
         </div>
 
-        <!-- Card 42: Kamrul Hasan Sagar, IPTEC Ltd. -->
-        <div class="ledger-card" data-category="services">
-          <h3 class="ledger-card-title">Kamrul Hasan Sagar, IPTEC Ltd.</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 43: Kindred Limited -->
+        <!-- Card 25: Kindred Limited -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Kindred Limited</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1741,15 +1640,7 @@
           </div>
         </div>
 
-        <!-- Card 44: Luxury Flowers and Chocolates -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Luxury Flowers and Chocolates</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 45: M&U Cycles Ltd. -->
+        <!-- Card 26: M&U Cycles Ltd. -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">M&U Cycles Ltd.</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1757,7 +1648,7 @@
           </div>
         </div>
 
-        <!-- Card 46: Master General Company Limited -->
+        <!-- Card 27: Master General Company Limited -->
         <div class="ledger-card" data-category="services">
           <h3 class="ledger-card-title">Master General Company Limited</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1765,15 +1656,7 @@
           </div>
         </div>
 
-        <!-- Card 47: Metakave -->
-        <div class="ledger-card" data-category="services">
-          <h3 class="ledger-card-title">Metakave</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 48: Need Groceries -->
+        <!-- Card 28: Need Groceries -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Need Groceries</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1782,23 +1665,7 @@
           </div>
         </div>
 
-        <!-- Card 49: Ninth Sense -->
-        <div class="ledger-card" data-category="services">
-          <h3 class="ledger-card-title">Ninth Sense</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 50: Opsora Store -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Opsora Store</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 51: Organik Chicken -->
+        <!-- Card 29: Organik Chicken -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">Organik Chicken</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1806,31 +1673,7 @@
           </div>
         </div>
 
-        <!-- Card 52: Pastuer Pharmatech Solutions -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Pastuer Pharmatech Solutions</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 53: Pathak Shamabesh -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Pathak Shamabesh</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 54: Pearl Street Holidays -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Pearl Street Holidays</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 55: Premier 1888 Ltd. -->
+        <!-- Card 30: Premier 1888 Ltd. -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">Premier 1888 Ltd.</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1839,15 +1682,7 @@
           </div>
         </div>
 
-        <!-- Card 56: RD Industries Limited -->
-        <div class="ledger-card" data-category="manufacturing">
-          <h3 class="ledger-card-title">RD Industries Limited</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 57: Shanta Lifestyle -->
+        <!-- Card 31: Shanta Lifestyle -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Shanta Lifestyle</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1855,7 +1690,7 @@
           </div>
         </div>
 
-        <!-- Card 58: Smart Distribution (Pvt) Ltd -->
+        <!-- Card 32: Smart Distribution (Pvt) Ltd -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">Smart Distribution (Pvt) Ltd</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1863,7 +1698,7 @@
           </div>
         </div>
 
-        <!-- Card 59: SMET SERVICES -->
+        <!-- Card 33: SMET SERVICES -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">SMET SERVICES</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1872,7 +1707,7 @@
           </div>
         </div>
 
-        <!-- Card 60: Studio Varmine -->
+        <!-- Card 34: Studio Varmine -->
         <div class="ledger-card" data-category="manufacturing">
           <h3 class="ledger-card-title">Studio Varmine</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1880,23 +1715,7 @@
           </div>
         </div>
 
-        <!-- Card 61: Surge Engineering -->
-        <div class="ledger-card" data-category="manufacturing">
-          <h3 class="ledger-card-title">Surge Engineering</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 62: Swapnanagar Bidyaniketon -->
-        <div class="ledger-card" data-category="services">
-          <h3 class="ledger-card-title">Swapnanagar Bidyaniketon</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 63: Tetra Private Limited -->
+        <!-- Card 35: Tetra Private Limited -->
         <div class="ledger-card" data-category="services">
           <h3 class="ledger-card-title">Tetra Private Limited</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1905,7 +1724,7 @@
           </div>
         </div>
 
-        <!-- Card 64: The University Press Limited (UPL) -->
+        <!-- Card 36: The University Press Limited (UPL) -->
         <div class="ledger-card" data-category="retail">
           <h3 class="ledger-card-title">The University Press Limited (UPL)</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
@@ -1914,20 +1733,254 @@
           </div>
         </div>
 
-        <!-- Card 65: Tree -->
-        <div class="ledger-card" data-category="retail">
-          <h3 class="ledger-card-title">Tree</h3>
-          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
-            <span class="ledger-badge firm">Firm Deployment</span>
-          </div>
-        </div>
-
-        <!-- Card 66: Vantage -->
+        <!-- Card 37: Vantage -->
         <div class="ledger-card" data-category="services">
           <h3 class="ledger-card-title">Vantage</h3>
           <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
             <span class="ledger-badge support">Support Consultant</span>
             <span class="ledger-badge analyst">Business Analyst</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="ledger-divider" id="ledger-grid-divider"></div>
+
+      <!-- Ledger Grid 2: Firm wide Portfolio (29) -->
+      <div class="ledger-grid-title-wrap" id="firm-title-wrap">
+        <h3>Other Metamorphosis Ltd. Deployments (29)</h3>
+        <p>Other major enterprise environments delivered and supported by the Metamorphosis Ltd. team.</p>
+      </div>
+      <div class="ledger-grid" id="firm-grid">
+        <!-- Card 38: Agile Minds Solutions Limited -->
+        <div class="ledger-card" data-category="retail">
+          <h3 class="ledger-card-title">Agile Minds Solutions Limited</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 39: AI for Business Transformation (AI4BT) -->
+        <div class="ledger-card" data-category="services">
+          <h3 class="ledger-card-title">AI for Business Transformation (AI4BT)</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 40: Benetrex Sourcing -->
+        <div class="ledger-card" data-category="retail">
+          <h3 class="ledger-card-title">Benetrex Sourcing</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 41: Bhaiya Housing Limited -->
+        <div class="ledger-card" data-category="services">
+          <h3 class="ledger-card-title">Bhaiya Housing Limited</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 42: Celestial Tech Limited -->
+        <div class="ledger-card" data-category="services">
+          <h3 class="ledger-card-title">Celestial Tech Limited</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 43: Colorjet -->
+        <div class="ledger-card" data-category="retail">
+          <h3 class="ledger-card-title">Colorjet</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 44: Dahmashi Trading Company Ltd -->
+        <div class="ledger-card" data-category="retail">
+          <h3 class="ledger-card-title">Dahmashi Trading Company Ltd</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 45: DSectors Services Ltd. -->
+        <div class="ledger-card" data-category="ngo">
+          <h3 class="ledger-card-title">DSectors Services Ltd.</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 46: Dukhan Mart -->
+        <div class="ledger-card" data-category="retail">
+          <h3 class="ledger-card-title">Dukhan Mart</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 47: ExpoPro -->
+        <div class="ledger-card" data-category="services">
+          <h3 class="ledger-card-title">ExpoPro</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 48: Friendship NGO -->
+        <div class="ledger-card" data-category="ngo">
+          <h3 class="ledger-card-title">Friendship NGO</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 49: Grameen Danone -->
+        <div class="ledger-card" data-category="manufacturing">
+          <h3 class="ledger-card-title">Grameen Danone</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 50: HAJ Corporation, Rashed Mondol -->
+        <div class="ledger-card" data-category="services">
+          <h3 class="ledger-card-title">HAJ Corporation, Rashed Mondol</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 51: HammerHead Bangladesh Engineering Services Limited -->
+        <div class="ledger-card" data-category="services">
+          <h3 class="ledger-card-title">HammerHead Bangladesh Engineering Services Limited</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 52: Hasan Rubber Industris (Pvt.) Ltd. -->
+        <div class="ledger-card" data-category="manufacturing">
+          <h3 class="ledger-card-title">Hasan Rubber Industris (Pvt.) Ltd.</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 53: Invite Foods Trading -->
+        <div class="ledger-card" data-category="retail">
+          <h3 class="ledger-card-title">Invite Foods Trading</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 54: JamiePro bv -->
+        <div class="ledger-card" data-category="retail">
+          <h3 class="ledger-card-title">JamiePro bv</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 55: Kamrul Hasan Sagar, IPTEC Ltd. -->
+        <div class="ledger-card" data-category="services">
+          <h3 class="ledger-card-title">Kamrul Hasan Sagar, IPTEC Ltd.</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 56: Luxury Flowers and Chocolates -->
+        <div class="ledger-card" data-category="retail">
+          <h3 class="ledger-card-title">Luxury Flowers and Chocolates</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 57: Metakave -->
+        <div class="ledger-card" data-category="services">
+          <h3 class="ledger-card-title">Metakave</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 58: Ninth Sense -->
+        <div class="ledger-card" data-category="services">
+          <h3 class="ledger-card-title">Ninth Sense</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 59: Opsora Store -->
+        <div class="ledger-card" data-category="retail">
+          <h3 class="ledger-card-title">Opsora Store</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 60: Pastuer Pharmatech Solutions -->
+        <div class="ledger-card" data-category="retail">
+          <h3 class="ledger-card-title">Pastuer Pharmatech Solutions</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 61: Pathak Shamabesh -->
+        <div class="ledger-card" data-category="retail">
+          <h3 class="ledger-card-title">Pathak Shamabesh</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 62: Pearl Street Holidays -->
+        <div class="ledger-card" data-category="retail">
+          <h3 class="ledger-card-title">Pearl Street Holidays</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 63: RD Industries Limited -->
+        <div class="ledger-card" data-category="manufacturing">
+          <h3 class="ledger-card-title">RD Industries Limited</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 64: Surge Engineering -->
+        <div class="ledger-card" data-category="manufacturing">
+          <h3 class="ledger-card-title">Surge Engineering</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 65: Swapnanagar Bidyaniketon -->
+        <div class="ledger-card" data-category="services">
+          <h3 class="ledger-card-title">Swapnanagar Bidyaniketon</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
+          </div>
+        </div>
+
+        <!-- Card 66: Tree -->
+        <div class="ledger-card" data-category="retail">
+          <h3 class="ledger-card-title">Tree</h3>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto;">
+            <span class="ledger-badge firm">Firm Deployment</span>
           </div>
         </div>
       </div>
@@ -2509,27 +2562,66 @@
     // ── Enterprise Deployment Ledger Filter & Search ──────────────────────────
     const searchInput = document.querySelector('.ledger-search');
     const filterBtns = document.querySelectorAll('.ledger-filter-btn');
-    const ledgerCards = document.querySelectorAll('.ledger-card');
     
     let activeFilter = 'all';
     let searchQuery = '';
     
     function updateLedger() {
-      ledgerCards.forEach(card => {
-        const title = card.querySelector('.ledger-card-title').textContent.toLowerCase();
-        const category = card.getAttribute('data-category');
+      const grids = ['personal-grid', 'firm-grid'];
+      let visibleGridsCount = 0;
+      
+      grids.forEach(gridId => {
+        const grid = document.getElementById(gridId);
+        if (!grid) return;
         
-        const matchesCategory = activeFilter === 'all' || category.split(' ').includes(activeFilter);
-        const matchesSearch = title.includes(searchQuery);
+        const cards = grid.querySelectorAll('.ledger-card');
+        let visibleCount = 0;
         
-        if (matchesCategory && matchesSearch) {
-          card.style.display = 'flex';
-          card.style.opacity = '0';
-          setTimeout(() => { card.style.opacity = '1'; }, 50);
+        cards.forEach(card => {
+          const title = card.querySelector('.ledger-card-title').textContent.toLowerCase();
+          const category = card.getAttribute('data-category');
+          
+          const matchesCategory = activeFilter === 'all' || category.split(' ').includes(activeFilter);
+          const matchesSearch = title.includes(searchQuery);
+          
+          if (matchesCategory && matchesSearch) {
+            card.style.display = 'flex';
+            card.style.opacity = '0';
+            setTimeout(() => { card.style.opacity = '1'; }, 50);
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        
+        const titleWrapId = gridId === 'personal-grid' ? 'personal-title-wrap' : 'firm-title-wrap';
+        const titleWrap = document.getElementById(titleWrapId);
+        
+        if (visibleCount === 0) {
+          if (titleWrap) titleWrap.style.display = 'none';
+          grid.style.display = 'none';
         } else {
-          card.style.display = 'none';
+          if (titleWrap) titleWrap.style.display = 'block';
+          grid.style.display = 'grid';
+          visibleGridsCount++;
         }
       });
+      
+      // Handle the divider dynamically
+      const divider = document.getElementById('ledger-grid-divider');
+      if (divider) {
+        // Show divider only if both grids have visible elements
+        const personalGrid = document.getElementById('personal-grid');
+        const firmGrid = document.getElementById('firm-grid');
+        const personalVisible = personalGrid && personalGrid.style.display !== 'none';
+        const firmVisible = firmGrid && firmGrid.style.display !== 'none';
+        
+        if (personalVisible && firmVisible) {
+          divider.style.display = 'block';
+        } else {
+          divider.style.display = 'none';
+        }
+      }
     }
     
     if (searchInput) {
